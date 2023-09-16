@@ -5,9 +5,9 @@
  *Return: 0 if not is in the interactive an 1 if intercative
  */
 
-int is_interact(info_t *inf)
+int is_interact(info_table *inf)
 {
-	return (inf->readfd <= 2 && isatty(STDIN_FILENO));
+	return (inf->readfile <= 2 && isatty(STDIN_FILENO));
 }
 
 /**
