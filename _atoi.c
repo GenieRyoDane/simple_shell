@@ -2,9 +2,9 @@
 /**
  * if shell is correct the result will return 1 else the return is 0
  */
-int interactive(info_t *info)
+int is_interact(info_t *inf)
 {
-	return ( info->readfd <= 2 && isatty(STDIN_FILENO));
+	return ( inf->readfd <= 2 && isatty(STDIN_FILENO));
 }
 
 /**
@@ -21,7 +21,7 @@ int is_del(char d, char *del)
  * function alphabetic that tcheaker if is a caracter
  */
 
-int _isalphabetic(int d)
+int _isalphanum(int d)
 {
 	if ((d >= 'a' && d <= 'z') || (d >= 'A' && d <= 'Z'))
 		return (1);
@@ -31,33 +31,36 @@ int _isalphabetic(int d)
 
 /**
  * function _atoi that convert the string to char
+ * s is sign and f is a variable like a flag 
+ * op is the outpout to the finction _atoi
+ * res is variable which we affected to op
  */
 
 int _atoi(char *tab)
 {
-	int k,  flag = 1 , sign = 1 , output;
-	unsigned int result = 0;
+	int k,  f = 1 , s = 1 , op;
+	unsigned int res = 0;
 
-	for (k = 0;  tab[k] != '\0' && flag != 10; k++)
+	for (k = 0;  tab[k] != '\0' && f != 10; k++)
 	{
 		if (tab[k] == '-')
-			sign *= -1;
+			s *= -1;
 
 		if (tab[k] >= '0' && tab[k] <= '9')
 		{
-			flag = 0;
-			result *= 10;
-			result += (tab[k] - '0');
+			f= 0;
+			res *= 10;
+			res += (tab[k] - '0');
 		}
-		else if (flag == 0)
-			flag = 10;
+		else if (f == 0)
+			f = 10;
 	}
 
-	if (sign == -1)
-		output = -result;
+	if (s == -1)
+		op = -res;
 	else
-		output = result;
+		op = res;
 
-	return (output);
+	return (op);
 }
 
