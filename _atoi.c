@@ -1,6 +1,8 @@
 #include "shell.h"
 /**
- * if shell is correct the result will return 1 else the return is 0
+ *is_interact - returns  will return 1 else the return is 0
+ *@inf: is struct address
+ *Return: 0 if not is in the interactive an 1 if intercative
  */
 
 int is_interact(info_t *inf)
@@ -9,9 +11,10 @@ int is_interact(info_t *inf)
 }
 
 /**
- *function delimter
- *d is commapred to del is the incremented del
- *is equal a delimter then we return true else we return false
+ *is_del - returns the integr of delimter function
+ *@d: is commapred to del is the incremented del
+ *@del: is a pointer of caracter
+ *Return: is equal a delimter then we return true else we return false
  */
 int is_del(char d, char *del)
 {
@@ -22,8 +25,9 @@ return (0);
 }
 
 /**
- * function alphabetic that t cheaker if is a number or not
- * d is ASCCI  code of the letters is retur true or false
+ *_isalphanum -  function alphabetic that t cheaker if is a number or not
+ * @d: is ASCCI  code of the letters is retur true or false
+ * Return: true or false
  */
 
 int _isalphanum(int d)
@@ -33,13 +37,10 @@ int _isalphanum(int d)
 	else
 		return (0);
 }
-/*
- *function atoi that convert the string to char
- *s is sign and f is a variable like a flag
- *op is the outpout to the finction _atoi
- *res is variable which we affected to op
- *k is a counter variable
- *tab is table of character
+/**
+ *_atoi - function atoi that convert the string to charter
+ *@tab: is table of character
+ *Return: integer returns
  */
 
 int _atoi(char *tab)
