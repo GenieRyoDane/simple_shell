@@ -1,10 +1,6 @@
 #include "shell.h"
-
 /**
- * interactive : if shell is interactive returns true
- * @info: structure address
- *
- * Return: 0 otherwise, 1 if interactive mode,
+ * if shell is correct the result will return 1 else the return is 0
  */
 int interactive(info_t *info)
 {
@@ -12,23 +8,17 @@ int interactive(info_t *info)
 }
 
 /**
- * is_del : if character is a delimeter, check
- * @d: character to check
- * @del:  delimeter string
- * Return: 0 if false ,1 if true
+ *function delimter
  */
 int is_del(char d, char *del)
 {
 	while (*del)
-		if (*del++ == d)
-			return (1);
+		if (*del++ == d)return (1);
 	return (0);
 }
 
 /**
- *_isalphabetic - checks for alphabetic charac
- *@d: The charac to input
- *Return: 1 if c is alpha, 0 otherwise
+ * function alphabetic that tcheaker if is a caracter
  */
 
 int _isalphabetic(int d)
@@ -40,29 +30,27 @@ int _isalphabetic(int d)
 }
 
 /**
- *_atoi - converts a string to an integer
- *@st: the string to be converted
- *Return: 0 if no numbers in string, converted number otherwise
+ * function _atoi that convert the string to char
  */
 
-int _atoi(char *st)
+int _atoi(char *tab)
 {
-	int k,  flag = 0 , sign = 1 , output;
+	int k,  flag = 1 , sign = 1 , output;
 	unsigned int result = 0;
 
-	for (k = 0;  st[k] != '\0' && flag != 2; k++)
+	for (k = 0;  tab[k] != '\0' && flag != 10; k++)
 	{
-		if (st[k] == '-')
+		if (tab[k] == '-')
 			sign *= -1;
 
-		if (st[k] >= '0' && st[k] <= '9')
+		if (tab[k] >= '0' && tab[k] <= '9')
 		{
-			flag = 1;
+			flag = 0;
 			result *= 10;
-			result += (st[k] - '0');
+			result += (tab[k] - '0');
 		}
-		else if (flag == 1)
-			flag = 2;
+		else if (flag == 0)
+			flag = 10;
 	}
 
 	if (sign == -1)
