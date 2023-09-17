@@ -56,13 +56,13 @@ int finded_bulding(info_table *inf)
 {
 	int i, buld_ret_in = -1;
 	bulding_tab tablebul[] = {
-		{"exit", _myexit},
+		{"exit", _myExit},
 		{"env", _myEnv},
-		{"help", _myhelp},
+		{"help", _myHelp},
 		{"history", _myhistory},
 		{"setenv", _mySetEnv},
 		{"unsetenv", _myUnsetEnv},
-		{"cd", _mycd},
+		{"cd", _myCd},
 		{"alias", _myalias},
 		{NULL, NULL}
 	};
