@@ -34,7 +34,6 @@ ssize_t input_buffer(info_table *inf, char **buffer, size_t *l)
 			inf->count_line_flag = 1;
 			remove_comments(*buffer);
 			build_history_list(inf, *buffer, inf->counthist++);
-			 
 			{
 				*l = rr;
 				inf->cmd_buffer = buffer;
@@ -46,8 +45,7 @@ ssize_t input_buffer(info_table *inf, char **buffer, size_t *l)
 
 /**
  * get_input - gets a line minus the newline
- * @info: parameter struct
- *
+ * @inf: parameter struct
  * Return: bytes read
  */
 ssize_t get_input(info_table *inf)
@@ -59,15 +57,14 @@ ssize_t get_input(info_table *inf)
 
 	_putchar(BUF_FLUSH);
 	r = input_buffer(inf, &buffer, &l);
-	if (r == -1) 
+	if (r == -1)
 		return (-1);
 	if (l)	/* wn bufferfer */
 	{
 		j = i; /* init ner position */
 		p = buffer + i; /* get pourn */
-
 		check_chain(inf, buffer, &j, i, l);
-		while (j < l) /* iterate to semicolon or end */
+		while (j < l) /* boucle to final */
 		{
 			if (is_chain(inf, buffer, &j))
 				break;
@@ -91,7 +88,7 @@ ssize_t get_input(info_table *inf)
 
 /**
  * read_buffer - reads a bufferfer
- * @info: parameter struct
+ * @inf: parameter struct
  * @buffer: bufferfer
  * @i: size
  *
@@ -110,7 +107,7 @@ ssize_t read_buffer(info_table *inf, char *buffer, size_t *i)
 }
 
 /**
- * _getline - gets the next line of input from STDIN
+ * _getLine - gets the next line of input from STDIN
  * @inf: parameter struct
  * @pt: address of pointer to bufferfer, preallocated or NULL
  * @lgth: size of preallocated ptr bufferfer if not NULL
@@ -157,9 +154,8 @@ int _getLine(info_table *inf, char **pt, size_t *lgth)
 }
 
 /**
- * s
- * @signum: 
- *
+ * sigint_Handler - function that handl a sign
+ * @signum: sign num
  * Return: void
  */
 void sigint_Handler(__attribute__((unused))int signum)

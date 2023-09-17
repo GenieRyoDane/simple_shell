@@ -19,9 +19,9 @@ void clean_information(info_table *inf)
  */
 void set_info(info_table *inf, char **v)
 {
-	int i = 0;
+	int k = 0;
 
-	inf->fname = v[0];
+	inf->filename = v[0];
 	if (inf->arg)
 	{
 		inf->argv = strtow(inf->arg, " \t");
@@ -58,15 +58,15 @@ void freeInformation(info_table *inf, int kk)
 	{
 		if (!inf->cmd_buffer)
 			free(inf->arg);
-		if (inf->env)
-			free_list(&(info->env));
+		if (inf->envi)
+			freeList(&(inf->envi));
 		if (inf->historic)
-			free_list(&(info->historic));
+			freeList(&(inf->historic));
 		if (inf->alia)
-			free_list(&(inf->alia));
+			freeList(&(inf->alia));
 		ffree(inf->environ_mod);
 			inf->environ_mod = NULL;
-		bfree((void **)info->cmd_buf);
+		bfree((void **)inf->cmd_buffer);
 		if (inf->readfile > 2)
 			close(inf->readfile);
 		_putchar(BUF_FLUSH);

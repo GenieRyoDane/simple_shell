@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * get_environ_mod - returns the string array copy of our environ_mod
+ * getEnv - returns the string array copy of our environ_mod
  * @inf: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  * Return: Always 0
@@ -18,7 +18,7 @@ char **getEnv(info_table *inf)
 }
 
 /**
- * _unsetenv - Remove an environ_modment variable
+ * _unsetEnv - Remove an environ_modment variable
  * @inf: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
  *  Return: 1 on delete, 0 otherwise
@@ -35,10 +35,10 @@ int _unsetEnv(info_table *inf, char *b)
 
 	while (nod)
 	{
-		m = starts_with(nod->str, b);
-		if (m && *m== '=')
+		m = starts_with(nod->stri, b);
+		if (m && *m == '=')
 		{
-			inf->changed_env = delete_node_at_index(&(inf->envi), i);
+			inf->changed_env = deleteNodeAtIndex(&(inf->envi), i);
 			i = 0;
 			nod = inf->envi;
 			continue;
@@ -50,7 +50,7 @@ int _unsetEnv(info_table *inf, char *b)
 }
 
 /**
- * _setenv - Initialize a new environ_modment variable,
+ * _setEnv - Initialize a new environ_modment variable,
  *             or modify an existing one
  * @inf: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
@@ -60,7 +60,7 @@ int _unsetEnv(info_table *inf, char *b)
  */
 int _setEnv(info_table *inf, char *b, char *val)
 {
-	char *res= NULL;
+	char *res = NULL;
 	list_table *nod;
 	char *p;
 
@@ -76,17 +76,17 @@ int _setEnv(info_table *inf, char *b, char *val)
 	nod = inf->envi;
 	while (nod)
 	{
-		p = starts_with(nod->str, b);
+		p = starts_with(nod->stri, b);
 		if (p && *p == '=')
 		{
-			free(nod->str);
-			nod->str = res;
+			free(nod->stri);
+			nod->stri = res;
 			inf->changed_env = 1;
 			return (0);
 		}
 		nod = nod->next;
 	}
-	add_node_end(&(inf->envi), res, 0);
+	addNodeEnd(&(inf->envi), res, 0);
 	free(res);
 	inf->changed_env = 1;
 	return (0);

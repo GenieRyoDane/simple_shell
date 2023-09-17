@@ -8,16 +8,15 @@
  */
 int _myEnv(info_table *inf)
 {
-	print_list_str(inf->envi);
+	printSlistStr(inf->envi);
 	return (0);
 }
 
 /**
- * _getenv - gets the value of an environ variable
+ * _getEnv - gets the value of an environ variable
  * @inf: Structure containing potential arguments. Used to maintain
  * @fn: env var name
- *
- * Return: the value
+ * Rerurn: a character
  */
 char *_getEnv(info_table *inf, const char *fn)
 {
@@ -26,7 +25,7 @@ char *_getEnv(info_table *inf, const char *fn)
 
 	while (nod)
 	{
-		k = starts_with(nod->str, fn);
+		k = starts_with(nod->stri, fn);
 		if (k && *k)
 			return (k);
 		nod = nod->next;
@@ -35,7 +34,7 @@ char *_getEnv(info_table *inf, const char *fn)
 }
 
 /**
- * _mysetenv - Initialize a new environment variable,
+ * _mySetEnv - Initialize a new environment variable,
  *             or modify an existing one
  * @inf: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
@@ -54,9 +53,8 @@ int _mySetEnv(info_table *inf)
 }
 
 /**
- * _myunsetenv - Remove an environment variable
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
+ * _myUnsetEnv - Remove an environment variable
+ * @inf: Structure containing potential arguments. Used to maintain
  *  Return: Always 0
  */
 int _myUnsetEnv(info_table *inf)
@@ -70,13 +68,12 @@ int _myUnsetEnv(info_table *inf)
 	}
 	for (i = 1; i <= inf->argc; i++)
 		_unsetEnv(inf, inf->argv[i]);
-
 	return (0);
 }
 
 /**
  * _populateEnvList - populates env linked list
- * @inf: Structure containing potential arguments. Used to maintain
+ * @inf:  arguments. Used to maintain
  *          constant function prototype.
  * Return: Always 0
  */
@@ -86,7 +83,7 @@ int _populateEnvList(info_table *inf)
 	size_t i;
 
 	for (i = 0; environ_mod[i]; i++)
-		add_node_end(&nod, environ_mod[i], 0);
+		addNodeEnd(&nod, environ_mod[i], 0);
 	inf->envi = nod;
 	return (0);
 }

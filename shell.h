@@ -45,8 +45,8 @@ extern char **environ_mod;
  */
 typedef struct list_of_str
 {
-	int num;
-	char *str;
+	int numero;
+	char *stri;
 	struct list_of_str *next;
 } list_table;
 
@@ -210,12 +210,12 @@ int read_history(info_table *inf);
 int build_history_list(info_table *inf, char *buffer, int countline);
 int renumber_history(info_table *inf);
 
-/* toem_lists.c */
-list_table *add_node(list_table **, const char *, int);
-list_table *add_node_end(list_table **, const char *, int);
-size_t print_list_str(const list_table *);
-int delete_node_at_index(list_table **, unsigned int);
-void free_list(list_table **);
+/* fucnction list table */
+list_table *addNode(list_table **, const char *, int);
+list_table *addNodeEnd(list_table **, const char *, int);
+size_t printSlistStr(const list_table *);
+int deleteNodeAtIndex(list_table **, unsigned int);
+void freeList(list_table **);
 
 /* toem_lists1.c */
 size_t list_len(const list_table *);
