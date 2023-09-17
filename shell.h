@@ -34,7 +34,7 @@
 #define HIST_FILE	".simple_shell_history"
 #define HIST_MAX	4096
 
-extern char **environ;
+extern char **environ_mod;
 
 
 /**
@@ -78,14 +78,14 @@ typedef struct infopass
 	char **argv;
 	char *path;
 	int argc;
-	unsigned int line_count;
-	int err_num;
+	unsigned int counter_line;
+	int error_number;
 	int count_line_flag;
 	char *filename;
 	list_table *envi;
 	list_table *historic;
 	list_table *alia;
-	char **environ;
+	char **environ_mod;
 	int changed_env;
 	int statu;
 
@@ -104,18 +104,17 @@ typedef struct infopass
  *@type: the builtin command flag
  *@func: the function
  */
-typedef struct builtin
+typedef struct bulding
 {
 	char *type;
 	int (*func)(info_table *);
-} builtin_table;
+} bulding_tab;
 
-
-/* toem_shloop.c */
-int hsh(info_table *, char **);
-int find_builtin(info_table *);
-void find_cmd(info_table *);
-void fork_cmd(info_table *);
+/* function of shell boucle.c */
+int hashage(info_table *, char **);
+int finded_bulding(info_table *);
+void finded_comand(info_table *);
+void forked_comand(info_table *);
 
 /* toem_parser.c */
 int is_cmd(info_table *, char *);
@@ -127,11 +126,11 @@ int loophsh(char **);
 
 /* toem_errors.c */
 void _eputs(char *);
-int _eputchar(char);
+int _eputch(char);
 int _putfd(char c, int fd);
 int _putsfd(char *str, int fd);
 
-/* toem_string.c */
+/* function of string */
 int _strlen(char *);
 int _strcmp(char *, char *);
 char *starts_with(const char *, const char *);
@@ -168,7 +167,7 @@ int _atoi(char *);
 
 /* toem_errors1.c */
 int _erratoi(char *);
-void print_error(info_table *, char *);
+void printf_errors(info_table *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
@@ -182,27 +181,27 @@ int _myhelp(info_table *);
 int _myhistory(info_table *);
 int _myalias(info_table *);
 
-/*toem_getline.c */
-ssize_t get_input(info_table *);
-int _getline(info_table *, char **, size_t *);
-void sigintHandler(int);
+/*getline function */
+ssize_t get_in(info_table *);
+int _getLine(info_table *, char **, size_t *);
+void sigint_Handler(int);
 
-/* toem_getinfo.c */
-void clear_info(info_table *);
+/* function about information .c */
+void clean_information(info_table *);
 void set_info(info_table *, char **);
-void free_info(info_table *, int);
+void freeInformation(info_table *, int);
 
-/* toem_environ.c */
-char *_getenv(info_table *, const char *);
-int _myenv(info_table *);
-int _mysetenv(info_table *);
-int _myunsetenv(info_table *);
-int populate_env_list(info_table *);
+/* function environ_mod.c */
+char *_getEnv(info_table *, const char *);
+int _myEnv(info_table *);
+int _mySetEnv(info_table *);
+int _myUnsetEnv(info_table *);
+int _populateEnvList(info_table *);
 
-/* toem_getenv.c */
-char **get_environ(info_table *);
-int _unsetenv(info_table *, char *);
-int _setenv(info_table *, char *, char *);
+/* function of env */
+char **getEnv(info_table *);
+int _unsetEnv(info_table *, char *);
+int _setEnv(info_table *, char *, char *);
 
 /* toem_history.c */
 char *get_history_file(info_table *info);
