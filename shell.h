@@ -136,9 +136,9 @@ int _strcmp(char *, char *);
 char *starts_with(const char *, const char *);
 char *_strcat(char *, char *);
 
-/* toem_string1.c */
-char *_strcpy(char *, char *);
-char *_strdup(const char *);
+/* function of string_fun1.c */
+char *_strCpy(char *, char *);
+char *_strDup(const char *);
 void _puts(char *);
 int _putchar(char);
 
@@ -203,12 +203,12 @@ char **getEnv(info_table *);
 int _unsetEnv(info_table *, char *);
 int _setEnv(info_table *, char *, char *);
 
-/* toem_history.c */
-char *get_history_file(info_table *info);
-int write_history(info_table *inf);
-int read_history(info_table *inf);
-int build_history_list(info_table *inf, char *buffer, int countline);
-int renumber_history(info_table *inf);
+/* function of history  */
+char *getHistoryFile(info_table *info);
+int writeHistory(info_table *inf);
+int readHistory(info_table *inf);
+int buildHistoryList(info_table *inf, char *buffer, int countline);
+int renuHisto(info_table *inf);
 
 /* fucnction list table */
 list_table *addNode(list_table **, const char *, int);
