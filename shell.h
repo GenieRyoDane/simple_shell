@@ -142,10 +142,10 @@ char *_strdup(const char *);
 void _puts(char *);
 int _putchar(char);
 
-/* toem_exits.c */
-char *_strncpy(char *, char *, int);
-char *_strncat(char *, char *, int);
-char *_strchr(char *, char);
+/* exits_fun.c */
+char *_strncopy(char *, char *, int);
+char *_strnCat(char *, char *, int);
+char *_strChr(char *, char);
 
 /* toem_tokenizer.c */
 char **strtow(char *, char *);

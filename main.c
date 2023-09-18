@@ -26,9 +26,9 @@ int main(int n, char **v)
 				exit(126);
 			if (errno == ENOENT)
 			{
-				_eputs(v[0]);
-				_eputs(": 0: Is closed ");
-				_eputs(v[1]);
+				_Eputs(v[0]);
+				_Eputs(": 0: Is closed ");
+				_Eputs(v[1]);
 				_putchar('\n');
 				_putchar(BUF_FLUSH);
 				exit(127);

@@ -132,16 +132,16 @@ int _getLine(info_table *inf, char **pt, size_t *lgth)
 	if (r == -1 || (r == 0 && l == 0))
 		return (-1);
 
-	c = _strchr(buffer + i, '\n');
+	c = _strChr(buffer + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buffer) : l;
 	newp = _realloc(p, s, s ? s + k : k + 1);
 	if (!newp) /* MALLOC FAILURE! */
 		return (p ? free(p), -1 : -1);
 
 	if (s)
-		_strncat(newp, buffer + i, k - i);
+		_strnCat(newp, buffer + i, k - i);
 	else
-		_strncpy(newp, buffer + i, k - i + 1);
+		_strncopy(newp, buffer + i, k - i + 1);
 
 	s += k - i;
 	i = k;
