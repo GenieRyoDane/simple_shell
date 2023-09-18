@@ -16,7 +16,7 @@ int _myEnv(info_table *inf)
  * _getEnv - gets the value of an environ variable
  * @inf: Structure containing potential arguments. Used to maintain
  * @fn: env var name
- * Rerurn: a character
+ * Return: a character
  */
 char *_getEnv(info_table *inf, const char *fn)
 {
@@ -44,7 +44,7 @@ int _mySetEnv(info_table *inf)
 {
 	if (inf->argc != 3)
 	{
-		_eputs("try to a correct number of args\n");
+		_Eputs("try to a correct number of args\n");
 		return (1);
 	}
 	if (_setEnv(inf, inf->argv[1], inf->argv[2]))
@@ -63,7 +63,7 @@ int _myUnsetEnv(info_table *inf)
 
 	if (inf->argc == 1)
 	{
-		_eputs("give a  big args.\n");
+		_Eputs("give a  big args.\n");
 		return (1);
 	}
 	for (i = 1; i <= inf->argc; i++)

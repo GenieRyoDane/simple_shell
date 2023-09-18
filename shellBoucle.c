@@ -17,7 +17,7 @@ ssize_t rr = 0;
 		clean_information(inf);
 		if (is_interact(inf))
 			_puts("$ ");
-		_eputch(BUF_FLUSH);
+		_eputChar(BUF_FLUSH);
 		rr = get_in(inf);
 		if (rr != -1)
 		{

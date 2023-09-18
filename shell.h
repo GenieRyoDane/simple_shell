@@ -124,11 +124,11 @@ char *find_path(info_table *, char *, char *);
 /* loophsh.c */
 int loophsh(char **);
 
-/* toem_errors.c */
-void _eputs(char *);
-int _eputch(char);
-int _putfd(char c, int fd);
-int _putsfd(char *str, int fd);
+/*  func_errors methods */
+void _Eputs(char *);
+int _eputChar(char);
+int _putFd(char c, int fd);
+int _PutSfd(char *str, int fd);
 
 /* function of string */
 int _strlen(char *);

@@ -17,7 +17,7 @@ int _myExit(info_table *inf)
 		{ /* check an exit arguement */
 			inf->statu = 2;
 			printf_errors(inf, "number is not a legal ");
-			_eputs(inf->argv[1]);
+			_Eputs(inf->argv[1]);
 			_putchar('\n');
 			return (1);
 		}
@@ -65,7 +65,7 @@ int _myCd(info_table *inf)
 	if (chdirRet == -1)
 	{
 		printf_errors(inf, " cd is forbiden");
-		_eputs(inf->argv[1]), _putchar('\n');
+		_Eputs(inf->argv[1]), _putchar('\n');
 	}
 	else
 	{
