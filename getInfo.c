@@ -66,7 +66,7 @@ void freeInformation(info_table *inf, int kk)
 			freeList(&(inf->alia));
 		ffree(inf->environ_mod);
 			inf->environ_mod = NULL;
-		bfree((void **)inf->cmd_buffer);
+		B_free((void **)inf->cmd_buffer);
 		if (inf->readfile > 2)
 			close(inf->readfile);
 		_putchar(BUF_FLUSH);
