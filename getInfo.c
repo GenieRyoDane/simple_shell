@@ -31,7 +31,7 @@ void set_info(info_table *inf, char **v)
 			inf->argv = malloc(sizeof(char *) * 2);
 			if (inf->argv)
 			{
-				inf->argv[0] = _strdup(inf->arg);
+				inf->argv[0] = _strDup(inf->arg);
 				inf->argv[1] = NULL;
 			}
 		}

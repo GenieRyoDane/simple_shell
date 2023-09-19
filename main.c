@@ -38,7 +38,7 @@ int main(int n, char **v)
 		inf->readfile = fdd;
 	}
 	_populateEnvList(inf);
-	read_history(inf);
+	readHistory(inf);
 	hashage(inf, v);
 	return (EXIT_SUCCESS);
 }

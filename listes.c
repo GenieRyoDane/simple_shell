@@ -21,7 +21,7 @@ list_table *addNode(list_table **heead, const char *stri, int numero)
 	newheead->numero = numero;
 	if (stri)
 	{
-		newheead->stri = _strdup(stri);
+		newheead->stri = _strDup(stri);
 		if (!newheead->stri)
 		{
 			free(newheead);
@@ -56,7 +56,7 @@ list_table *addNodeEnd(list_table **heead, const char *stri, int numero)
 	newNode->numero = numero;
 	if (stri)
 	{
-		newNode->stri = _strdup(stri);
+		newNode->stri = _strDup(stri);
 		if (!newNode->stri)
 		{
 			free(newNode);

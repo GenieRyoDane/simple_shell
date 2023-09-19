@@ -70,7 +70,7 @@ int _setEnv(info_table *inf, char *b, char *val)
 	res = malloc(_strlen(b) + _strlen(val) + 2);
 	if (!res)
 		return (1);
-	_strcpy(res, b);
+	_strCpy(res, b);
 	_strcat(res, "=");
 	_strcat(res, val);
 	nod = inf->envi;

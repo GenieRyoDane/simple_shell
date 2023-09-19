@@ -30,7 +30,7 @@ ssize_t rr = 0;
 			_putchar('\n');
 		freeInformation(inf, 0);
 	}
-	write_history(inf);
+	writeHistory(inf);
 	freeInformation(inf, 1);
 	if (!is_interact(inf) && inf->statu)
 		exit(inf->statu);
