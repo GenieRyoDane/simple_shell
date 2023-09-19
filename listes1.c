@@ -66,7 +66,7 @@ size_t printList(const list_table *kh)
 
 	while (kh)
 	{
-		_puts(convert_number(kh->numero, 10, 0));
+		_puts(convNum(kh->numero, 10, 0));
 		_putchar(':');
 		_putchar(' ');
 		_puts(kh->stri ? kh->stri : "(nil)");

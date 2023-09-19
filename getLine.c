@@ -32,7 +32,7 @@ ssize_t input_buffer(info_table *inf, char **buffer, size_t *l)
 				rr--;
 			}
 			inf->count_line_flag = 1;
-			remove_comments(*buffer);
+			remComents(*buffer);
 			buildHistoryList(inf, *buffer, inf->counthist++);
 			{
 				*l = rr;

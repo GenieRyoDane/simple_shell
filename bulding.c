@@ -12,16 +12,16 @@ int _myExit(info_table *inf)
 
 	if (inf->argv[1])
 	{
-		checkExist = _erratoi(inf->argv[1]);
+		checkExist = _ErraToi(inf->argv[1]);
 		if (checkExist == -1)
 		{ /* check an exit arguement */
 			inf->statu = 2;
-			printf_errors(inf, "number is not a legal ");
+			printError(inf, "number is not a legal ");
 			_Eputs(inf->argv[1]);
 			_putchar('\n');
 			return (1);
 		}
-		inf->error_number = _erratoi(inf->argv[1]);
+		inf->error_number = _ErraToi(inf->argv[1]);
 		return (-2);
 	}
 	inf->error_number = -1;
@@ -64,7 +64,7 @@ int _myCd(info_table *inf)
 		chdirRet = chdir(inf->argv[1]);
 	if (chdirRet == -1)
 	{
-		printf_errors(inf, " cd is forbiden");
+		printError(inf, " cd is forbiden");
 		_Eputs(inf->argv[1]), _putchar('\n');
 	}
 	else

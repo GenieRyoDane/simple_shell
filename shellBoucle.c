@@ -114,7 +114,7 @@ void finded_comand(info_table *inf)
 		else if (*(inf->arg) != '\n')
 		{
 			inf->statu = 127;
-			printf_errors(inf, "not found\n");
+			printError(inf, "not found\n");
 		}
 	}
 }
@@ -152,7 +152,7 @@ void forked_comand(info_table *inf)
 		{
 			inf->statu = WEXITSTATUS(inf->statu);
 			if (inf->statu == 126)
-				printf_errors(inf, "permission is forbiden\n");
+				printError(inf, "permission is forbiden\n");
 		}
 	}
 }
