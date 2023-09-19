@@ -165,12 +165,12 @@ int is_del(char, char *);
 int _isalphanum(int);
 int _atoi(char *);
 
-/* toem_errors1.c */
-int _erratoi(char *);
-void printf_errors(info_table *, char *);
-int print_d(int, int);
-char *convert_number(long int, int, int);
-void remove_comments(char *);
+/*  function error 1 .c */
+int _ErraToi(char *);
+void printError(info_table *, char *);
+int printD(int, int);
+char *convNum(long int, int, int);
+void remComents(char *);
 
 /* function of buldding */
 int _myExit(info_table *);
